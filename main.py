@@ -11,7 +11,7 @@ app = Flask(__name__)
 #def colours():
 #    return render_template('palette.html', data = blankRGB())
 
-@app.route("/", methods=['GET','POST'])
+@app.route("/", methods=['POST'])
 def colours_post():
     if request.method == 'POST':
         text = request.form['text']
@@ -20,13 +20,13 @@ def colours_post():
         return render_template('palette.html', data = data)
     else: return render_template('palette.html', data = blankRGB())
 
-@app.route("/<text>")
-def palette(text):
-    hash = hash128(text)
-    data = [text, genRGBlist(hash)]
-    #print(data)
-    return render_template('palette.html', data = data)
-    #return f'colour palette for {escape(text)}'
+#@app.route("/<text>")
+#def palette(text):
+#    hash = hash128(text)
+#    data = [text, genRGBlist(hash)]
+#    #print(data)
+#    return render_template('palette.html', data = data)
+#    #return f'colour palette for {escape(text)}'
 
 def genRGB():
     return([random.randrange(0,255),random.randrange(0,255),random.randrange(0,255)])
