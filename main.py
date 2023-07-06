@@ -11,7 +11,7 @@ app = Flask(__name__)
 #def colours():
 #    return render_template('palette.html', data = blankRGB())
 
-@app.route("/", methods=['POST'])
+@app.route("/", methods=['GET','POST'])
 def colours_post():
     if request.method == 'POST':
         text = request.form['text']
