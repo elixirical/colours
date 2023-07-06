@@ -1,3 +1,5 @@
 flask
 mmh3
 gunicorn
+scipy
+numpy
