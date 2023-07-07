@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, send_from_directory
 from mmh3 import hash128
 from functions import *
+import os
 
 app = Flask(__name__)
 
@@ -22,17 +23,10 @@ def colours_post():
         elif genType == 'alt':
             data = [text, genHSLpalette(hash, len(genCheck))]
         return render_template('palette.jinja2', data = data, radio = genType, check = len(genCheck))
-#        elif genType == 'alt:':
-#            data = [text, genHSLpalette(hash, len(genCheck))]
-#            return render_template('palette.html', data = data, radio = 'new', check = len(genCheck))
-
-#        if genType == 'old': #RGB nonunified
-#            data = [text, genRGBlist(hash,0)]
-#            return render_template('palette.html', data = data, radio = 'old')
-#        elif genType == 'new': # RGB unified
-#            data = [text, genRGBlist(hash,1)]
-#            return render_template('palette.html', data = data, radio = 'new')
-#        elif genType == 'alt':
-#            data = [text, genHSLpalette(hash,0)]
-#            return render_template('palette.html', data = data, radio = 'alt')
+    
     else: return render_template('palette.html', data = blankRGB(), radio = 'old', check = 1)
+
+#@app.route("/favicon.ico")
+#def favicon():
+#    return send_from_directory(os.path.join(app.root_path, 'static'),
+#                              'favicon.ico', mimetype='image/vnd.microsoft.icon')

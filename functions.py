@@ -93,15 +93,6 @@ def jitterRGB(rgb):
     
 def jitterChannel(colourChannel): #RGB 
     return jitter(colourChannel, 255)
-#    upDown = random.randrange(0,2)
-#    delta = random.randrange(20,100)
-#    new = 127
-#    match upDown:
-#        case 0: new = colourChannel - delta
-#        case 1: new = colourChannel + delta
-#    if new > 255: return  #0 - delta
-#    elif new < 0: return new*-1 #0 + delta
-#    else: return new
 
 def genHSL():
     hue = random.randrange(0,360)
