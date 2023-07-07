@@ -7,23 +7,23 @@
         {% if data[0] == False%}
             <input name="text">
         {% else %}
-            <input name="text" value="{{ data[0] }}">
+            <input name="text" value="{{ data[0] }}" autofocus="autofocus">
         {% endif %}
 
         <input type="submit" value="submit">
 
         {% if radio == 'old' %}
-            <input type="radio" id="oldRadio" name="palette_type" value="old" checked>old generator</input>
-            <input type="radio" id="newRadio" name="palette_type" value="new">new generator</input>
-            <input type="radio" id="altRadio" name="palette_type" value="alt">alt generator</input>
-        {% elif radio == 'new' %}
-            <input type="radio" id="oldRadio" name="palette_type" value="old">old generator</input>
-            <input type="radio" id="newRadio" name="palette_type" value="new" checked>new generator</input>
-            <input type="radio" id="altRadio" name="palette_type" value="alt">alt generator</input>
+            <input type="radio" id="oldRadio" name="palette_type" value="old" checked>RGB generator</input>
+            <input type="radio" id="altRadio" name="palette_type" value="alt">HLS generator</input>
         {% elif radio == 'alt' %}
-            <input type="radio" id="oldRadio" name="palette_type" value="old">old generator</input>
-            <input type="radio" id="newRadio" name="palette_type" value="new">new generator</input>
-            <input type="radio" id="altRadio" name="palette_type" value="alt" checked>alt generator (should decrease greens)</input>
+            <input type="radio" id="oldRadio" name="palette_type" value="old">RGB generator</input>
+            <input type="radio" id="altRadio" name="palette_type" value="alt" checked>HLS generator</input>
+        {% endif %}
+
+        {% if check == 0 %}
+            <input type="checkbox" id="genCheck" name="gen_type" value="unified">more unified palette?</input>
+        {% elif check == 1 %}
+            <input type="checkbox" id="genCheck" name="gen_type" value="unified" checked>more unified palette?</input>
         {% endif %}
 
     </form>

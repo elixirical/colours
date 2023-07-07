@@ -106,18 +106,20 @@ def genHSL():
     lightness = random.randrange(20,81)
     return [hue,saturation,lightness]
 
-def genHSLpalette(seed):
+def genHSLpalette(seed, version):
     random.seed(seed)
     temp = []
     for n in range(16):
-        temp.append(genHSL())
+        temp.append(HLSToRGB(genHSL()))
     temp = rgbNN(temp)
-    for n in range(len(temp)): #inefficient but im lazy
-        temp[n] = HLSTohex(temp[n])
+    if version == 1:
+        temp = newGen(temp)
+    for n in range(16):
+        temp[n] = rgbToHex(temp[n][0],temp[n][1],temp[n][2])
     return temp
 
-def HLSTohex(hls):
+def HLSToRGB(hls):
     floatified = (hls[0]/100,hls[1]/100,hls[2]/100)
     rgbf = colorsys.hls_to_rgb(floatified[0],floatified[1],floatified[2])
-    rgbified = rgbToHex(round(rgbf[0]*255),round(rgbf[1]*255),round(rgbf[2]*255))
+    rgbified = round(rgbf[0]*255),round(rgbf[1]*255),round(rgbf[2]*255)
     return rgbified
