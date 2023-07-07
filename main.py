@@ -13,7 +13,6 @@ def colours_post():
     if request.method == 'POST':
         text = request.form['text']
         genType = request.form['palette_type']
-        print(genType)
         genCheck = request.form.getlist('gen_type')
         hash = hash128(text)
         data = []  
@@ -22,7 +21,7 @@ def colours_post():
             data = [text, genRGBlist(hash, len(genCheck))]
         elif genType == 'alt':
             data = [text, genHSLpalette(hash, len(genCheck))]
-        return render_template('palette.html', data = data, radio = genType, check = len(genCheck))
+        return render_template('palette.jinja2', data = data, radio = genType, check = len(genCheck))
 #        elif genType == 'alt:':
 #            data = [text, genHSLpalette(hash, len(genCheck))]
 #            return render_template('palette.html', data = data, radio = 'new', check = len(genCheck))
