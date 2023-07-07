@@ -20,4 +20,4 @@ def colours_post():
             data = [text, genHSLpalette(hash, len(genCheck))]
         return render_template('palette.jinja2', data = data, radio = genType, check = len(genCheck))
     
-    else: return render_template('palette.jinja2', data = blankRGB(), radio = 'old', check = 1)
+    else: return render_template('palette.jinja2', data = blankRGB(), radio = 'alt', check = 1)
