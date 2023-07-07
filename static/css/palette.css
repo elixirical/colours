@@ -9,7 +9,7 @@ h1 {
 span {
     aspect-ratio: 1/1;
     display: inline-flex;
-    width: 11%;
+    width: 22%;
     padding: 5px;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -21,4 +21,27 @@ span {
 div.github {
     position:absolute;
     bottom:0;
+}
+
+div.everything{
+    display: flex;
+    width: 100%;
+}
+
+div.title{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    width: 50%;
+}
+
+div.main {
+    float: right;
+    width: 50%;
+}
+
+div.colours{
+    display: flex;
+    align-items: flex-end;
 }

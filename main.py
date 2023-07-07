@@ -5,10 +5,6 @@ import os
 
 app = Flask(__name__)
 
-#@app.route("/")
-#def colours():
-#    return render_template('palette.html', data = blankRGB())
-
 @app.route("/", methods=['GET','POST'])
 def colours_post():
     if request.method == 'POST':
@@ -24,9 +20,4 @@ def colours_post():
             data = [text, genHSLpalette(hash, len(genCheck))]
         return render_template('palette.jinja2', data = data, radio = genType, check = len(genCheck))
     
-    else: return render_template('palette.html', data = blankRGB(), radio = 'old', check = 1)
-
-#@app.route("/favicon.ico")
-#def favicon():
-#    return send_from_directory(os.path.join(app.root_path, 'static'),
-#                              'favicon.ico', mimetype='image/vnd.microsoft.icon')
+    else: return render_template('palette.jinja2', data = blankRGB(), radio = 'old', check = 1)

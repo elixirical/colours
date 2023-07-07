@@ -22,7 +22,7 @@ def genRGBlist(seed,version):
 def blankRGB():
     temp=[]
     for n in range(16):
-        temp.append('#FFFFFF')
+        temp.append('#1f1f1f')
     return [False, temp]
 
 def rgbToHex(r, g, b):
