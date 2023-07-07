@@ -17,3 +17,8 @@ span {
     justify-content: center;
     align-items: end;
 }
+
+div.github {
+    position:absolute;
+    bottom:0;
+}
