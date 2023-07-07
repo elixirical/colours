@@ -45,3 +45,8 @@ div.colours{
     display: flex;
     align-items: flex-end;
 }
+
+input{
+    padding:5px;
+    border-radius:15px;
+}

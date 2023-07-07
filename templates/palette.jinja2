@@ -9,7 +9,7 @@
     <form method="post" action="/">
 
         {% if data[0] == False%}
-            <input name="text">
+            <input name="text" placeholder="your name here">
         {% else %}
             <input name="text" value="{{ data[0] }}" autofocus="autofocus">
         {% endif %}
