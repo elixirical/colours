@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<title>palette generator info</title>
+<link rel="stylesheet" href="./static/css/palette.css">
+<link rel="shortcut icon" href="./static/favicon.ico">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+
+<body style="font-family: 'Poppins', sans-serif;">
+    <form method="post" action="/">
+
+            <input name="text" placeholder="your name here">
+
+            <input type="radio" id="oldRadio" name="palette_type" value="old">RGB generator</input>
+            <input type="radio" id="altRadio" name="palette_type" value="alt" checked>HSL generator</input>
+
+            <input type="checkbox" id="genCheck" name="gen_type" value="unified" checked>more unified palette?</input>
+
+        <input type="submit" value="submit">
+
+    </form>
+
+    <div class="everything" style="margin:auto;width:60%;transform:translate(0, 40%);text-align:justify;">
+        <p>This little webapp generates 16 colours based on a text input. With unified palette checked, 
+        it tries to select a small subset of the palette, and using those selected colours, adds some 
+        amount of jitter to fill out the remaining colours. The colours are sorted according to a nearest
+        neighbour algorithm, however because of the three dimensional nature of HTML colourspaces, the 
+        colour order doesnt always makes sense to our human eyes. <br><br>
+
+        I created this largely for the hell of it. It was inspired by (or it is a direct copy of ¯\_(ツ)_/¯) 
+        <a href="https://farbecolore.com/">this</a> wonderful generator. I'm unsure of the exact method 
+        the linked site uses to generate colours, however this site hashes the given text input using the
+        x64 128-bit <a href="https://en.wikipedia.org/wiki/MurmurHash">MurmurHash</a> algorithm, and utilizes 
+        the resulting hash as an initial seed to generate all the colours. <br><br>
+        
+        The app itself is built using <a href="https://flask.palletsprojects.com/en/2.3.x/">flask</a> as the
+        framework, and the <a href="https://github.com/hajimes/mmh3">mmh3</a> implementation of MurmurHash. It
+        also utilizes <a href="https://numpy.org/">numpy</a> and <a href="https://scipy.org/">scipy</a> to calculate the nearest neighbour of each 
+        colour. The specific implementation of the nearest neighbour algorithm is sourced from 
+        <a href="https://www.alanzucconi.com/2015/09/30/colour-sorting/">this article</a>, which was of tremendous
+        help while building this app. Lastly, the favicon was obtained from 
+        <a href="https://www.flaticon.com/free-icon/paint_2997270">flaticon</a>, which provides a license stipulating
+        that it may be used for commercial or personal projects with attribution. <br><br>
+
+        The source code for this project can be found <a href="https://github.com/elixirical/colours/tree/master">here</a>. 
+        Feel free to clone it and modify it however you want (sorry in advance for the godawful documentation). 
+        If you do, please credit me (<a href="https://github.com/elixirical">elixirical</a>) as the original creator, and please credit farbecolore.com as the original 
+        inspiration. I am using and highly recommend <a href="https://render.com/">Render</a> to host this. I found 
+        Render as an alternative to Heroku after they deleted my account and removed their free tier, and have found it to be 
+        much easier to use, especially with the ability to conect your git repository directly to your Render account
+        and then deploy from there.</p>
+    </div>
+    <div class="github">
+        some <a href="info">info</a><br>
+        code on <a href="https://github.com/elixirical/colours/tree/master">github</a><br>
+        favicon from <a href="https://www.flaticon.com/free-icons/artist">here</a></div>
+</body>

@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 
 @app.route("/", methods=['GET','POST'])
-def colours_post():
+def colours():
     if request.method == 'POST':
         text = request.form['text']
         genType = request.form['palette_type']
@@ -21,3 +21,7 @@ def colours_post():
         return render_template('palette.jinja2', data = data, radio = genType, check = len(genCheck))
     
     else: return render_template('palette.jinja2', data = blankRGB(), radio = 'alt', check = 1)
+
+@app.route("/info")
+def info():
+    return render_template('info.jinja2')

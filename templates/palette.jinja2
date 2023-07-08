@@ -1,5 +1,9 @@
 <!DOCTYPE html>
-<title>colour palette for {{ data[0] }}</title>
+{% if data[0] == False %}
+    <title>colour palette generator</title>
+{% else %}
+    <title>colour palette for {{ data[0] }}</title>
+{% endif %}
 <link rel="stylesheet" href="./static/css/palette.css">
 <link rel="shortcut icon" href="./static/favicon.ico">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Belanosima">
@@ -8,7 +12,7 @@
 <body style="font-family: 'Poppins', sans-serif;">
     <form method="post" action="/">
 
-        {% if data[0] == False%}
+        {% if data[0] == False %}
             <input name="text" placeholder="your name here">
         {% else %}
             <input name="text" value="{{ data[0] }}" autofocus="autofocus">
@@ -70,6 +74,7 @@
         </div>
     </div>
     <div class="github">
+        some <a href="info">info</a><br>
         code on <a href="https://github.com/elixirical/colours/tree/master">github</a><br>
         favicon from <a href="https://www.flaticon.com/free-icons/artist">here</a></div>
 </body>
