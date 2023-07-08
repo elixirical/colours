@@ -76,7 +76,7 @@ def newGen(values, colourSpace):
             keep = [0,5,10,15]
             split = [0,random.randrange(2,4),random.randrange(7,9),random.randrange(12,14)]
 
-    for n in range(0,len(values)-1):
+    for n in range(0,len(values)):
         if n in split:
             newValues[n] = values[keep[split.index(n)]]
         else: 
